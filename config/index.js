@@ -169,9 +169,9 @@ const addDatabase = () => {
         
 const viewAllRoles = () => { 
     const startMenu = require(`../server`);
-    db.query(viewRoles, (error, data) => {
-        if (error) {
-            console.log(error);
+    db.query(viewRoles, (err, data) => {
+        if (err) {
+            console.log(err);
         } else {
             console.table(data);
             startMenu();
@@ -180,9 +180,9 @@ const viewAllRoles = () => {
 
 const viewAllEmployees = () => {
     const startMenu = require(`../server`);
-    db.query(viewAll, (error, data) => {
-        if (error) {
-            console.log(error);
+    db.query(viewAll, (err, data) => {
+        if (err) {
+            console.log(err);
         } else {
             console.table(data);
             startMenu();
@@ -192,9 +192,9 @@ const viewAllEmployees = () => {
 
 const viewAllDepartments = () => {
     const startMenu = require(`../server`);
-    db.query(viewDepartments, (error, data) => {
-        if (error) {
-            console.log(error);
+    db.query(viewDepartments, (err, data) => {
+        if (err) {
+            console.log(err);
         } else {
             console.table(data);
             startMenu();
