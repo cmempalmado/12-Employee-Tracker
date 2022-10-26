@@ -140,7 +140,7 @@ const addRole = () => {
             const addRoleData = [JSON.stringify(data.roleName), data.salary, data.department];
             db.promise().query(`INSERT INTO roles (title, salary, department_id) VALUES (${addRoleData[0]}, ${addRoleData[1]}, ${addRoleData[2]});`)
             .then(() => {
-                console.log(`\n~~~~~ ${data.roleName} Role has been successfully added! \n~~~~~~`);
+                console.log(`\n~~~~~ ${data.roleName} Role has been successfully added! ~~~~~~\n`);
                 startMenu();
             })
         })
