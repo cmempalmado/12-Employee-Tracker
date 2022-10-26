@@ -6,68 +6,79 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 require('dotenv').config();
 
+init();
+
+function init () {
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~',
+    '\n\tEmployee-Tracker Application',
+    '\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n');
+}
+
 const { viewAllRoles, 
     addEmployee, 
     viewAllEmployees, 
     viewAllDepartments, 
     updateRole, 
     addRole, 
-    addDatabase 
+    addDatabase,
+    // removeEmployee 
 } = require(`./config/index`);
 
 const startMenu = () => {
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~',
-    '\n\tEmployee-Tracker Application',
-    '\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n');
     inquirer.prompt ([
         {
-            type: `list`,
+            type: 'list',
             message: `What would you like to do?`,
-            name: `userChoice`,
+            name: 'userChoice',
             choices: [
-                `View All Employees`,
-                `View All Roles`,
-                `View All Departments`,   
-                `Add Employee`,
-                `Add Role`,
-                `Add Department`,
-                `Update Employee Role`,
-                `Exit`
+                'View All Employees',
+                'View All Roles',
+                'View All Departments',
+                'Add Employee',
+                'Add Role',
+                'Add Department',
+                'Update Employee Role',
+                // 'Remove Employee',
+                'Exit Application'
                 ],
             },
         ])
     .then((answer) => {
         
         switch (answer.userChoice) {
-            case `View All Employees`:
+            case 'View All Employees':
                 viewAllEmployees();
                 break;
 
-            case `View All Roles`:
+            case 'View All Roles':
                 viewAllRoles();
                 break;
 
-            case `View All Departments`:
+            case 'View All Departments':
                 viewAllDepartments();
                 break;
 
-            case `Add Employee`:
+            case 'Add Employee':
                 addEmployee();
                 break;
 
-            case `Add Role`:
+            case 'Add Role':
                 addRole();           
                 break; 
 
-            case `Add Department`:
+            case 'Add Department':
                 addDatabase();
                 break;
 
-            case `Update Employee Role`:
+            case 'Update Employee Role':
                 updateRole();
                 break;
 
-            case `Exit`:
+            // case 'Remove Employee':
+            //     removeEmployee();
+            //     break;
+
+            case 'Exit Application':
                 exitProgram();
             };
         });

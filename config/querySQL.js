@@ -1,4 +1,4 @@
-const viewAll = `SELECT employees.id, employees.first_name, employees.last_name, 
+const viewAllEmployee = `SELECT employees.id, employees.first_name, employees.last_name, 
     roles.title, departments.name, roles.salary
     FROM employees
     JOIN roles ON roles.id = employees.role_id
@@ -7,6 +7,4 @@ const viewAll = `SELECT employees.id, employees.first_name, employees.last_name,
 const viewDepartments = `SELECT * FROM departments;`;
 const viewRoles = `SELECT * FROM roles;`;
 
-
-
-module.exports = { viewAll, viewRoles, viewDepartments };
+module.exports = { viewAllEmployee, viewRoles, viewDepartments };
