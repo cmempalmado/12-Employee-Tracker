@@ -5,9 +5,15 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 require('dotenv').config();
-const kill = require(`kill-port`);
 
-const { viewAllRoles, addEmployee, viewAllEmployees, viewAllDepartments, updateRole, addRole, addDatabase } = require(`./config/inquirer`);
+const { viewAllRoles, 
+    addEmployee, 
+    viewAllEmployees, 
+    viewAllDepartments, 
+    updateRole, 
+    addRole, 
+    addDatabase 
+} = require(`./config/index`);
 
 const startMenu = () => {
     inquirer.prompt ([

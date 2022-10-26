@@ -3,10 +3,8 @@ const mysql = require(`mysql2`);
 const cTable = require(`console.table`);
 const map = require(`map`);
 
-// Imported some query variables for selected options
 const {viewAll, viewRoles, viewDepartments} = require(`./querySQL`);
 const e = require('express');
-// Imports protect file with sensitive information
 require('dotenv').config()
 
 //Connects to MySQL and USES database
@@ -19,6 +17,7 @@ const db = mysql.createConnection (
     }
 );
 //PROMPTS & QUERIES
+
 const addEmployee = () => {
     inquirer.prompt ([
         {
