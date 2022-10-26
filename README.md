@@ -37,7 +37,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 ```
 
 ## Mock-Up
-
+![Screenshot](https://user-images.githubusercontent.com/107980867/198023072-a0cd2a98-67ed-4227-b80d-29ee1641ba93.jpg)
 
 
 ## Link on Walkthrough Video
