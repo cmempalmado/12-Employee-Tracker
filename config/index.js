@@ -2,6 +2,7 @@ const inquirer = require(`inquirer`);
 const mysql = require(`mysql2`);
 const cTable = require(`console.table`);
 const map = require(`map`);
+const startMenu = require(`../server`);
 
 const {viewAll, viewRoles, viewDepartments} = require(`./querySQL`);
 const e = require('express');
@@ -22,18 +23,18 @@ const addEmployee = () => {
     inquirer.prompt ([
         {
             type: `input`,
-            name: `first`,
+            name: `firstName`,
             message: `Enter the employee's first name.`
         },
         {
             type: `input`,
-            name: `last`,
+            name: `lastName`,
             message: `Enter the employee's last name.`
         },
     ])
     .then((name) => {
         const startMenu = require(`../server`);
-        const employee = [JSON.stringify(name.first), JSON.stringify(name.last)];
+        const employee = [JSON.stringify(name.firstName).trim(), JSON.stringify(name.lastName).trim()];
         console.log(employee);
         db.promise().query(`SELECT roles.id, roles.title FROM roles;`)
         .then(((data) => { 

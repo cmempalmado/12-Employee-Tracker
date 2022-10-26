@@ -16,26 +16,29 @@ const { viewAllRoles,
 } = require(`./config/index`);
 
 const startMenu = () => {
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~',
+    '\n\tEmployee-Tracker Application',
+    '\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
     inquirer.prompt ([
         {
             type: `list`,
             message: `What would you like to do?`,
-            name: `startChoice`,
+            name: `userChoice`,
             choices: [
-                    `View All Employees`,
-                    `Add Employee`,
-                    `Update Employee Role`,
-                    `View All Roles`,
-                    `Add Role`,
-                    `View All Departments`,
-                    `Add Department`,
-                    `Exit`
+                `View All Employees`,
+                `View All Roles`,
+                `View All Departments`,   
+                `Add Employee`,
+                `Add Role`,
+                `Add Department`,
+                `Update Employee Role`,
+                `Exit`
                 ],
             },
         ])
     .then((answer) => {
         
-        switch (answer.startChoice) {
+        switch (answer.userChoice) {
             case `View All Employees`:
                 viewAllEmployees();
                 break;
@@ -73,7 +76,7 @@ startMenu();
 
 function exitProgram() {
     console.log(`\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`,
-                ` Database Closed `,
+                ` Employee-Tracker Closed `,
                 `~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
                 );
     process.exit();
@@ -84,8 +87,8 @@ app.use((req, res) => {
         res.status(404).end;
 });
 
-app.listen(PORT, () => {
-    console.log(`Now Listening to PORT ${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`\n\nNow Listening to PORT ${PORT}`);
+// });
 
 module.exports = startMenu;
