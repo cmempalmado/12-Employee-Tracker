@@ -98,8 +98,4 @@ app.use((req, res) => {
         res.status(404).end;
 });
 
-// app.listen(PORT, () => {
-//     console.log(`\n\nNow Listening to PORT ${PORT}`);
-// });
-
 module.exports = startMenu;
